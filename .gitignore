@@ -1,0 +1,9 @@
+# github cli
+gh
+# iterm
+iterm2
+# tmux plugins
+tmux/plugins
+# nvim
+nvim/lazy-lock.json
+nvim/lua/.luarc.json
