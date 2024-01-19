@@ -1,35 +1,6 @@
--- exit insert mode
-vim.keymap.set("i", "jj", "<ESC>")
-
--- buffer management
-vim.keymap.set("n", "<leader>h", ":bprevious<CR>")
-vim.keymap.set("n", "<leader>l", ":bnext<CR>")
-
 -- file
-vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
-
--- comment (handled by comment.lua)
-
--- window split
-vim.keymap.set("n", "<leader>ss", ":split<CR>")
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
-
---  window management (handled by tmux-navigator)
-
---  resize windows
-vim.keymap.set("n", "<C-right>", ":vertical resize +2<CR>")
-vim.keymap.set("n", "<C-down>", ":resize +2<CR>")
-vim.keymap.set("n", "<C-left>", ":vertical resize -2<CR>")
-vim.keymap.set("n", "<C-up>", ":resize -2<CR>")
-
--- code actions (handled by lsp.lua & none-ls.lua)
-
--- test actions (not yet implemented)
-
--- git actions (not yet implemented)
-
--- fold actions (not yet implemented)
+vim.keymap.set("n", "<leader>q", ":q<CR>")
 
 -- indentation
 vim.keymap.set("v", "<", "<gv")
@@ -40,4 +11,37 @@ vim.keymap.set("v", "J", ":move .+1<CR>==")
 vim.keymap.set("v", "K", ":move .-1<CR>==")
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
-vim.keymap.set("v", "p", "_dP")
+
+-- window split
+vim.keymap.set("n", "<leader>ss", ":split<CR>")
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>")
+
+-- buffers
+vim.keymap.set("n", "<leader>h", ":bprevious<CR>")
+vim.keymap.set("n", "<leader>l", ":bnext<CR>")
+vim.keymap.set("n", "<leader><left>", ":BufferLineMovePrev<CR>")
+vim.keymap.set("n", "<leader><right>", ":BufferLineMoveNext<CR>")
+vim.keymap.set("n", "<leader>q", function() require("close_buffers").delete({ type = "this" }) end)
+
+-- git actions
+vim.keymap.set('n', 'gS', ":Gitsigns stage_hunk<CR>")
+vim.keymap.set('n', 'gU', ":Gitsigns undo_stage_hunk<CR>")
+vim.keymap.set('n', 'gC', ":Gitsigns reset_hunk<CR>")
+vim.keymap.set('n', 'gs', ":Gitsigns stage_buffer<CR>")
+vim.keymap.set('n', 'gu', ":Gitsigns reset_buffer_index<CR>")
+vim.keymap.set('n', 'gc', ":Gitsigns reset_buffer<CR>")
+vim.keymap.set('n', 'gj', ":Gitsigns next_hunk<CR>")
+vim.keymap.set('n', 'gk', ":Gitsigns prev_hunk<CR>")
+vim.keymap.set('n', 'gt', ":Gitsigns toggle_current_line_blame<CR>")
+
+--  resize windows
+vim.keymap.set("n", "<C-right>", ":vertical resize +2<CR>")
+vim.keymap.set("n", "<C-down>", ":resize +2<CR>")
+vim.keymap.set("n", "<C-left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<C-up>", ":resize -2<CR>")
+
+-- Override pasting
+vim.keymap.set('v', 'p', '"_dP');
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
