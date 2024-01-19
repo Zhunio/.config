@@ -33,6 +33,17 @@ vim.keymap.set('n', 'gd', function() require('vscode-neovim').action('editor.act
 vim.keymap.set('n', 'gD', function() require('vscode-neovim').action('editor.action.peekDefinition') end)
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end)
 vim.keymap.set('n', 'g:', function() require('vscode-neovim').action('workbench.action.gotoLine') end)
+-- git actions
+vim.keymap.set('v', 'gS', function() require('vscode-neovim').action('git.stageSelectedRanges') end)
+vim.keymap.set('v', 'gU', function() require('vscode-neovim').action('git.unstageSelectedRanges') end)
+vim.keymap.set('v', 'gC', function() require('vscode-neovim').action('git.revertSelectedRanges') end)
+vim.keymap.set('n', 'gs', function() require('vscode-neovim').action('git.stage') end)
+vim.keymap.set('n', 'gu', function() require('vscode-neovim').action('git.unstage') end)
+vim.keymap.set('n', 'gc', function() require('vscode-neovim').action('git.clean') end)
+vim.keymap.set('n', 'go', function() require('vscode-neovim').action('gitlens.openWorkingFile') end)
+vim.keymap.set('n', 'gn', function() require('vscode-neovim').action('editor.action.dirtydiff.next') end)
+vim.keymap.set('n', 'gp', function() require('vscode-neovim').action('editor.action.dirtydiff.previous') end)
+vim.keymap.set('n', 'gi', function() require('vscode-neovim').action('toggle.diff.renderSideBySide') end)
 
 -- test actions
 vim.keymap.set('n', '<leader>ta', function() require('vscode-neovim').action('test-explorer.run-all') end)
@@ -43,17 +54,6 @@ vim.keymap.set('n', '<leader>td', function() require('vscode-neovim').action('te
 -- debug actions
 vim.keymap.set('n', '<leader>dn', function() require('vscode-neovim').action('editor.debug.action.goToNextBreakpoint') end)
 vim.keymap.set('n', '<leader>dp', function() require('vscode-neovim').action('editor.debug.action.goToPreviousBreakpoint') end)
-
--- git actions
--- vim.keymap.set('v', '<leader>gs', function() require('vscode-neovim').action('git.stageSelectedRanges') end)
--- vim.keymap.set('v', '<leader>gu', function() require('vscode-neovim').action('git.unstageSelectedRanges') endl
--- vim.keymap.set('v', '<leader>gr', function() require('vscode-neovim').action('git.revertSelectedRanges') end)
-vim.keymap.set('n', '<leader>gs', function() require('vscode-neovim').action('git.stage') end)
-vim.keymap.set('n', '<leader>gu', function() require('vscode-neovim').action('git.unstage') end)
-vim.keymap.set('n', '<leader>gc', function() require('vscode-neovim').action('git.clean') end)
-vim.keymap.set('n', '<leader>gj', function() require('vscode-neovim').action('editor.action.dirtydiff.next') end)
-vim.keymap.set('n', '<leader>gk', function() require('vscode-neovim').action('editor.action.dirtydiff.previous') end)
-vim.keymap.set('n', '<leader>gi', function() require('vscode-neovim').action('toggle.diff.renderSideBySide') end)
 
 -- fold actions
 vim.keymap.set('n', 'zp', function() require('vscode-neovim').action('editor.gotoParentFold') end)
@@ -68,6 +68,6 @@ vim.keymap.set('n', 'zs', function() require('vscode-neovim').action('editor.act
 vim.keymap.set({ 'n', 'x' }, '>', function() require('vscode-neovim').action('editor.action.indentLines') end)
 vim.keymap.set({ 'n', 'x' }, '<', function() require('vscode-neovim').action('editor.action.outdentLines') end)
 
--- move lines
-vim.keymap.set('v', '<S-k>', function() require('vscode-neovim').action('editor.action.moveLinesUpAction') end)
-vim.keymap.set('v', '<S-j>', function() require('vscode-neovim').action('editor.action.moveLinesDownAction') end)
+-- move lines (does not work in vscode)
+-- vim.keymap.set('v', '<S-k>', function() require('vscode-neovim').action('editor.action.moveLinesUpAction') end)
+-- vim.keymap.set('v', '<S-j>', function() require('vscode-neovim').action('editor.action.moveLinesDownAction') end)
