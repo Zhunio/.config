@@ -1,0 +1,18 @@
+# Path for oh-my-posh theme
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zhunio.json)"
+# Path for nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# options for oh-my-posh
+ZSH_COLORIZE_TOOL=pygmentize
+ZSH_COLORIZE_STYLE="one-dark"
+# aliases
+alias python="python3"
+alias zshconfig="nvim $HOME/.zshrc"
+alias ohmyzsh="nvim $HOME/.oh-my-zsh"
+alias yabaiconfig="nvim $HOME/.config/yabai/yabairc"
+alias skhdconfig="nvim $HOME/.config/skhd/skhdrc"
+
+# Setup symbolic link
+# $ ln -s ~/.config/tmux/tmux.config ~/.tmux.config
