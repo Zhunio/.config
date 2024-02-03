@@ -1,9 +1,3 @@
--- Commands
-vim.keymap.set('n', '<leader>ee', function() require('vscode-neovim').action('workbench.view.explorer') end)
-vim.keymap.set('n', '<leader>fp', function() require('vscode-neovim').action('workbench.action.showCommands') end)
-vim.keymap.set('n', '<leader>ff', function() require('vscode-neovim').action('workbench.action.quickOpen') end)
-vim.keymap.set('n', '<leader>fg', function() require('vscode-neovim').action('workbench.action.gotoSymbol') end)
-vim.keymap.set('n', '<leader>ft', function() require('vscode-neovim').action('workbench.action.showAllSymbols') end)
 -- Go to find
 vim.keymap.set({ 'v', 'n' }, '<leader>fa', function() require('vscode-neovim').action('workbench.action.findInFiles') end)
 vim.keymap.set('n', '<leader>fl', function() require('vscode-neovim').action('search.action.focusSearchList') end)
@@ -52,7 +46,6 @@ vim.keymap.set('n', 'K', function() require('vscode-neovim').action('editor.acti
 vim.keymap.set('n', 'gd', function() require('vscode-neovim').action('editor.action.revealDefinition') end)
 vim.keymap.set('n', 'gD', function() require('vscode-neovim').action('editor.action.peekDefinition') end)
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end)
-vim.keymap.set('n', 'g:', function() require('vscode-neovim').action('workbench.action.gotoLine') end)
 vim.keymap.set('n', 'g=', function() require('vscode-neovim').action('editor.action.quickFix') end)
 
 -- git actions
