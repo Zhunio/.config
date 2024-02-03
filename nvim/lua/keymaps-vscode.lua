@@ -1,14 +1,3 @@
--- Go to find
-vim.keymap.set({ 'v', 'n' }, '<leader>fa', function() require('vscode-neovim').action('workbench.action.findInFiles') end)
-vim.keymap.set('n', '<leader>fl', function() require('vscode-neovim').action('search.action.focusSearchList') end)
--- Go to source control
-vim.keymap.set('n', '<leader>fs', function() require('vscode-neovim').action('workbench.view.scm') end)
-vim.keymap.set('n', '<leader>fc', function() require('vscode-neovim').action('gitlens.views.commits.focus') end)
--- Go to pull request
-vim.keymap.set('n', '<leader>pp', function() require('vscode-neovim').action('prStatus:github.focus') end)
-vim.keymap.set('n', '<leader>pc', function() require('vscode-neovim').action('workbench.action.focusCommentsPanel') end)
-vim.keymap.set('n', '<leader>pf', function() require('vscode-neovim').action('github:activePullRequest.focus') end)
-
 -- file
 vim.keymap.set('n', '<leader>w', function() require('vscode-neovim').action('workbench.action.files.save') end)
 vim.keymap.set('n', '<leader>q', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end)
