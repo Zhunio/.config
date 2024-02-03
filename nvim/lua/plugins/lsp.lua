@@ -43,7 +43,7 @@ return {
 				}),
 				formatting = {
 					format = lspkind.cmp_format({
-						maxwidth = 50,
+						maxwidth = 120,
 						ellipsis_char = "...",
 					}),
 				},
@@ -67,8 +67,7 @@ return {
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 				vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, {})
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
-				vim.keymap.set("n", "z=", vim.lsp.buf.code_action, {})
+				vim.keymap.set("n", "g=", vim.lsp.buf.code_action, {})
 			end
 
 			local lspConfig = require("lspconfig")
@@ -91,8 +90,6 @@ return {
 					null_ls.builtins.diagnostics.eslint_d,
 				},
 			})
-
-			vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
 		end,
 	},
 }

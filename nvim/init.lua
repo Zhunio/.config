@@ -15,13 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 
 if vim.g.vscode then
   require("keymaps-vscode")
-  require("lazy").setup({
-    { 
-      'vscode-neovim/vscode-multi-cursor.nvim',
-      config = function() require('vscode-multi-cursor').setup({}) end
-    }
-  });
+  require("lazy").setup("plugins-vscode")
 else
   require("keymaps")
-  require("lazy").setup('plugins');
+  require("lazy").setup("plugins")
 end

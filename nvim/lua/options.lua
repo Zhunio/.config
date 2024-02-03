@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 if vim.g.vscode then
   -- no special options for now

@@ -1,17 +1,37 @@
--- file
-vim.keymap.set('n', '<leader>q', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end)
-vim.keymap.set('n', '<leader>w', function() require('vscode-neovim').action('workbench.action.files.save') end)
+-- Commands
+vim.keymap.set('n', '<leader>ee', function() require('vscode-neovim').action('workbench.view.explorer') end)
+vim.keymap.set('n', '<leader>fp', function() require('vscode-neovim').action('workbench.action.showCommands') end)
+vim.keymap.set('n', '<leader>ff', function() require('vscode-neovim').action('workbench.action.quickOpen') end)
+vim.keymap.set('n', '<leader>fg', function() require('vscode-neovim').action('workbench.action.gotoSymbol') end)
+vim.keymap.set('n', '<leader>ft', function() require('vscode-neovim').action('workbench.action.showAllSymbols') end)
+-- Go to find
+vim.keymap.set({ 'v', 'n' }, '<leader>fa', function() require('vscode-neovim').action('workbench.action.findInFiles') end)
+vim.keymap.set('n', '<leader>fl', function() require('vscode-neovim').action('search.action.focusSearchList') end)
+-- Go to source control
+vim.keymap.set('n', '<leader>fs', function() require('vscode-neovim').action('workbench.view.scm') end)
+vim.keymap.set('n', '<leader>fc', function() require('vscode-neovim').action('gitlens.views.commits.focus') end)
+-- Go to pull request
+vim.keymap.set('n', '<leader>pp', function() require('vscode-neovim').action('prStatus:github.focus') end)
+vim.keymap.set('n', '<leader>pc', function() require('vscode-neovim').action('workbench.action.focusCommentsPanel') end)
+vim.keymap.set('n', '<leader>pf', function() require('vscode-neovim').action('github:activePullRequest.focus') end)
 
--- comment
-vim.keymap.set({ 'n', 'x' }, '<leader>c', function() require('vscode-neovim').action('editor.action.commentLine') end)
+-- file
+vim.keymap.set('n', '<leader>w', function() require('vscode-neovim').action('workbench.action.files.save') end)
+vim.keymap.set('n', '<leader>q', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end)
+
+-- indentation
+vim.keymap.set({ 'n', 'x' }, '>', function() require('vscode-neovim').action('editor.action.indentLines') end)
+vim.keymap.set({ 'n', 'x' }, '<', function() require('vscode-neovim').action('editor.action.outdentLines') end)
 
 -- window split
-vim.keymap.set('n', '<leaderss', function() require('vscode-neovim').action('workbench.action.splitEditorDown') end)
+vim.keymap.set('n', '<leader>ss', function() require('vscode-neovim').action('workbench.action.splitEditorDown') end)
 vim.keymap.set('n', '<leader>sv', function() require('vscode-neovim').action('workbench.action.splitEditor') end)
 
 -- buffers
 vim.keymap.set('n', '<leader>l', function() require('vscode-neovim').action('workbench.action.nextEditor') end)
 vim.keymap.set('n', '<leader>h', function() require('vscode-neovim').action('workbench.action.previousEditor') end)
+vim.keymap.set('n', '<leader><left>', function() require('vscode-neovim').action('workbench.action.moveEditorLeftInGroup') end)
+vim.keymap.set('n', '<leader><right>', function() require('vscode-neovim').action('workbench.action.moveEditorRightInGroup') end)
 
 -- window management
 vim.keymap.set('n', '<C-l>', function() require('vscode-neovim').action('workbench.action.navigateRight') end)
@@ -27,12 +47,14 @@ vim.keymap.set('n', '<C-up>', function() require('vscode-neovim').action('workbe
 
 -- code actions
 vim.keymap.set('n', '<leader>r', function() require('vscode-neovim').action('editor.action.rename') end)
-vim.keymap.set('n', '<leader>f', function() require('vscode-neovim').action('editor.action.formatDocument') end)
+vim.keymap.set('n', '<leader>gf', function() require('vscode-neovim').action('editor.action.formatChanges') end)
 vim.keymap.set('n', 'K', function() require('vscode-neovim').action('editor.action.showHover') end)
 vim.keymap.set('n', 'gd', function() require('vscode-neovim').action('editor.action.revealDefinition') end)
 vim.keymap.set('n', 'gD', function() require('vscode-neovim').action('editor.action.peekDefinition') end)
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end)
 vim.keymap.set('n', 'g:', function() require('vscode-neovim').action('workbench.action.gotoLine') end)
+vim.keymap.set('n', 'g=', function() require('vscode-neovim').action('editor.action.quickFix') end)
+
 -- git actions
 vim.keymap.set('v', 'gS', function() require('vscode-neovim').action('git.stageSelectedRanges') end)
 vim.keymap.set('v', 'gU', function() require('vscode-neovim').action('git.unstageSelectedRanges') end)
@@ -41,19 +63,13 @@ vim.keymap.set('n', 'gs', function() require('vscode-neovim').action('git.stage'
 vim.keymap.set('n', 'gu', function() require('vscode-neovim').action('git.unstage') end)
 vim.keymap.set('n', 'gc', function() require('vscode-neovim').action('git.clean') end)
 vim.keymap.set('n', 'go', function() require('vscode-neovim').action('gitlens.openWorkingFile') end)
-vim.keymap.set('n', 'gn', function() require('vscode-neovim').action('editor.action.dirtydiff.next') end)
-vim.keymap.set('n', 'gp', function() require('vscode-neovim').action('editor.action.dirtydiff.previous') end)
+vim.keymap.set('n', 'gn', function() require('vscode-neovim').action('workbench.action.compareEditor.nextChange') end)
+vim.keymap.set('n', 'gp', function() require('vscode-neovim').action('workbench.action.compareEditor.previousChange') end)
+vim.keymap.set('n', '<leader>gn', function() require('vscode-neovim').action('editor.action.dirtydiff.next') end)
+vim.keymap.set('n', '<leader>gp', function() require('vscode-neovim').action('editor.action.dirtydiff.previous') end)
+vim.keymap.set('n', '<leader>gj', function() require('vscode-neovim').action('workbench.action.editor.nextChange') end)
+vim.keymap.set('n', '<leader>gk', function() require('vscode-neovim').action('workbench.action.editor.previousChange') end)
 vim.keymap.set('n', 'gi', function() require('vscode-neovim').action('toggle.diff.renderSideBySide') end)
-
--- test actions
-vim.keymap.set('n', '<leader>ta', function() require('vscode-neovim').action('test-explorer.run-all') end)
-vim.keymap.set('n', '<leader>tf', function() require('vscode-neovim').action('test-explorer.run-file') end)
-vim.keymap.set('n', '<leader>tc', function() require('vscode-neovim').action('test-explorer.run-test-at-cursor') end)
-vim.keymap.set('n', '<leader>td', function() require('vscode-neovim').action('test-explorer.debug-test-at-cursor') end)
-
--- debug actions
-vim.keymap.set('n', '<leader>dn', function() require('vscode-neovim').action('editor.debug.action.goToNextBreakpoint') end)
-vim.keymap.set('n', '<leader>dp', function() require('vscode-neovim').action('editor.debug.action.goToPreviousBreakpoint') end)
 
 -- fold actions
 vim.keymap.set('n', 'zp', function() require('vscode-neovim').action('editor.gotoParentFold') end)
@@ -64,10 +80,5 @@ vim.keymap.set('n', 'zk', function() require('vscode-neovim').action('editor.got
 vim.keymap.set('n', 'za', function() require('vscode-neovim').action('editor.toggleFold') end)
 vim.keymap.set('n', 'zs', function() require('vscode-neovim').action('editor.action.toggleStickyScroll') end)
 
--- indentation
-vim.keymap.set({ 'n', 'x' }, '>', function() require('vscode-neovim').action('editor.action.indentLines') end)
-vim.keymap.set({ 'n', 'x' }, '<', function() require('vscode-neovim').action('editor.action.outdentLines') end)
-
--- move lines (does not work in vscode)
--- vim.keymap.set('v', '<S-k>', function() require('vscode-neovim').action('editor.action.moveLinesUpAction') end)
--- vim.keymap.set('v', '<S-j>', function() require('vscode-neovim').action('editor.action.moveLinesDownAction') end)
+-- Comments
+vim.keymap.set({ 'n', 'x' }, '<leader>cc', function() require('vscode-neovim').action('editor.action.commentLine') end)
