@@ -31,7 +31,9 @@ vim.keymap.set('n', '<C-up>', function() require('vscode-neovim').action('workbe
 -- code actions
 vim.keymap.set('n', '<leader>r', function() require('vscode-neovim').action('editor.action.rename') end)
 vim.keymap.set('n', '<leader>gf', function() require('vscode-neovim').action('editor.action.formatChanges') end)
-vim.keymap.set('n', 'K', function() require('vscode-neovim').action('editor.action.showHover') end)
+vim.keymap.set('n', 'Kh', function() require('vscode-neovim').action('editor.action.showHover') end)
+vim.keymap.set('n', 'Kd', function() require('vscode-neovim').action('editor.action.showDefinitionPreviewHover') end)
+vim.keymap.set('n', 'Kp', function() require('vscode-neovim').action('editor.action.triggerParameterHints') end)
 vim.keymap.set('n', 'gd', function() require('vscode-neovim').action('editor.action.revealDefinition') end)
 vim.keymap.set('n', 'gD', function() require('vscode-neovim').action('editor.action.peekDefinition') end)
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end)
@@ -63,4 +65,4 @@ vim.keymap.set('n', 'za', function() require('vscode-neovim').action('editor.tog
 vim.keymap.set('n', 'zs', function() require('vscode-neovim').action('editor.action.toggleStickyScroll') end)
 
 -- Comments
-vim.keymap.set({ 'n', 'x' }, '<leader>cc', function() require('vscode-neovim').action('editor.action.commentLine') end)
+vim.keymap.set({ 'n', 'x' }, '<leader>c', function() require('vscode-neovim').action('editor.action.commentLine') end)
