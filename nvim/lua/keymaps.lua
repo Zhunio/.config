@@ -26,3 +26,6 @@ vim.keymap.set("n", "<C-down>", ":resize +2<CR>")
 vim.keymap.set("n", "<C-left>", ":vertical resize -2<CR>")
 vim.keymap.set("n", "<C-up>", ":resize -2<CR>")
 
+-- Override pasting
+vim.keymap.set('v', 'p', '"_dP');
+

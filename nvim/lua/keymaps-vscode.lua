@@ -30,7 +30,7 @@ vim.keymap.set('n', '<C-up>', function() require('vscode-neovim').action('workbe
 
 -- code actions
 vim.keymap.set('n', '<leader>r', function() require('vscode-neovim').action('editor.action.rename') end)
-vim.keymap.set('n', '<leader>gf', function() require('vscode-neovim').action('editor.action.formatChanges') end)
+vim.keymap.set('n', '<leader>f', function() require('vscode-neovim').action('editor.action.formatDocument') end)
 vim.keymap.set('n', 'Kh', function() require('vscode-neovim').action('editor.action.showHover') end)
 vim.keymap.set('n', 'Kd', function() require('vscode-neovim').action('editor.action.showDefinitionPreviewHover') end)
 vim.keymap.set('n', 'Kp', function() require('vscode-neovim').action('editor.action.triggerParameterHints') end)
@@ -66,3 +66,7 @@ vim.keymap.set('n', 'zs', function() require('vscode-neovim').action('editor.act
 
 -- Comments
 vim.keymap.set({ 'n', 'x' }, '<leader>c', function() require('vscode-neovim').action('editor.action.commentLine') end)
+
+-- Override pasting
+vim.keymap.set('v', 'p', '"_dP');
+
