@@ -74,6 +74,12 @@ vim.keymap.set('n', 'zk', function() require('vscode-neovim').action('editor.got
 vim.keymap.set('n', 'za', function() require('vscode-neovim').action('editor.toggleFold') end)
 vim.keymap.set('n', 'zs', function() require('vscode-neovim').action('editor.action.toggleStickyScroll') end)
 
+-- bookmarks
+vim.keymap.set('n', '<leader>bt', function() require('vscode-neovim').action('bookmarks.toggle') end)
+vim.keymap.set('n', '<leader>bj', function() require('vscode-neovim').action('bookmarks.jumpToNext') end)
+vim.keymap.set('n', '<leader>bk', function() require('vscode-neovim').action('bookmarks.jumpToPrevious') end)
+vim.keymap.set('n', '<leader>bl', function() require('vscode-neovim').action('bookmarks.listFromAllFiles') end)
+
 -- Comments
 vim.keymap.set({ 'n', 'x' }, '<leader>c', function() require('vscode-neovim').action('editor.action.commentLine') end)
 
