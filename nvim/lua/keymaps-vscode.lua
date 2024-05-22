@@ -65,6 +65,11 @@ vim.keymap.set('n', 'gk', function()
   -- require('vscode-neovim').action('editor.action.dirtydiff.previous')
 end)
 
+vim.keymap.set('n', 'gR', function()
+  require('vscode-neovim').call('workbench.action.output.toggleOutput')
+  require('vscode-neovim').call('workbench.output.action.clearOutput')
+  vim.api.nvim_command(":registers")
+end)
 -- fold actions
 vim.keymap.set('n', 'zp', function() require('vscode-neovim').action('editor.gotoParentFold') end)
 vim.keymap.set('n', 'zC', function() require('vscode-neovim').action('editor.foldAll') end)
